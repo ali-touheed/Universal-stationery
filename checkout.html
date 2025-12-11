@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Artisan Essentials - Checkout</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Cormorant+Garamond:wght@300;400;600&family=Cinzel:wght@400;600;900&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a2332 0%, #2d4563 50%, #4a6fa5 100%);
+            color: #e8f1ff;
+            -webkit-font-smoothing: antialiased;
+            padding: 20px;
+        }
+
+        .checkout-page {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #1e3a5f 0%, #2d5a7b 50%, #4a7ba7 100%);
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            min-height: 90vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header.topbar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px 32px;
+            background: linear-gradient(135deg, rgba(30, 58, 95, 0.8) 0%, rgba(26, 38, 66, 0.9) 100%);
+            border-bottom: 1px solid rgba(107, 141, 214, 0.3);
+        }
+
+        .logo {
+            text-align: center;
+        }
+
+        .logo .title {
+            font-family: 'Cinzel', serif;
+            font-size: 2.2rem;
+            font-weight: 900;
+            letter-spacing: 3px;
+            background: linear-gradient(135deg, #d4a574 0%, #f5e6d3 50%, #d4a574 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+        }
+
+        .main-content {
+            padding: 40px;
+            flex: 1;
+        }
+
+        .checkout-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 40px;
+        }
+
+        h2 {
+            font-family: 'Cinzel', serif;
+            color: #d4a574;
+            margin-bottom: 24px;
+            font-size: 1.5rem;
+            border-bottom: 1px solid rgba(107, 141, 214, 0.3);
+            padding-bottom: 10px;
+        }
+
+        /* Form Styles */
+        .form-section {
+            background: rgba(30, 58, 95, 0.6);
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid rgba(107, 141, 214, 0.2);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #a8c5e0;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 16px;
+            border-radius: 10px;
+            border: 1px solid rgba(107, 141, 214, 0.3);
+            background: rgba(26, 38, 66, 0.8);
+            color: #e8f1ff;
+            font-size: 1rem;
+            font-family: 'Georgia', serif;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #8bbdf7;
+            box-shadow: 0 0 15px rgba(139, 189, 247, 0.2);
+        }
+
+        /* Order Summary Styles */
+        .summary-section {
+            background: rgba(26, 38, 66, 0.9);
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid rgba(107, 141, 214, 0.2);
+            height: fit-content;
+        }
+
+        .order-items {
+            max-height: 400px;
+            overflow-y: auto;
+            margin-bottom: 20px;
+            padding-right: 10px;
+        }
+
+        .order-items::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .order-items::-webkit-scrollbar-track {
+            background: rgba(30, 58, 95, 0.3);
+        }
+
+        .order-items::-webkit-scrollbar-thumb {
+            background: rgba(139, 189, 247, 0.5);
+            border-radius: 10px;
+        }
+
+        .summary-item {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid rgba(107, 141, 214, 0.1);
+        }
+
+        .summary-item:last-child {
+            border-bottom: none;
+        }
+
+        .summary-item img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid rgba(107, 141, 214, 0.2);
+        }
+
+        .item-details {
+            flex: 1;
+        }
+
+        .item-title {
+            font-weight: 700;
+            font-size: 0.95rem;
+            margin-bottom: 4px;
+        }
+
+        .item-meta {
+            color: #a8c5e0;
+            font-size: 0.85rem;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .total-section {
+            border-top: 2px solid rgba(107, 141, 214, 0.3);
+            padding-top: 20px;
+            margin-top: 10px;
+        }
+
+        .total-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #d4a574;
+            font-family: 'Cinzel', serif;
+        }
+
+        .place-order-btn {
+            width: 100%;
+            margin-top: 24px;
+            padding: 14px;
+            background: linear-gradient(135deg, #2ed573, #26de81);
+            color: #0e223d;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            font-family: 'Cinzel', serif;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(46, 213, 115, 0.3);
+        }
+
+        .place-order-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(46, 213, 115, 0.5);
+            filter: brightness(1.1);
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 16px;
+            color: #a8c5e0;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .back-link:hover {
+            color: #e8f1ff;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 800px) {
+            .checkout-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .order-items {
+                max-height: 300px;
+            }
+
+            .checkout-grid {
+                display: flex;
+                flex-direction: column-reverse;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="checkout-page">
+        <header class="topbar">
+            <div class="logo">
+                <div class="title">ARTISAN</div>
+                <div
+                    style="font-family: 'Cormorant Garamond'; letter-spacing: 4px; font-style: italic; font-size: 0.9rem; color: #a8c5e0;">
+                    secure checkout</div>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <div class="checkout-grid">
+
+                <div class="form-section">
+                    <h2>Shipping Details</h2>
+                    <form id="checkoutForm" onsubmit="event.preventDefault(); placeOrder();">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" required placeholder="Enter your full name">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" required placeholder="Enter your phone number">
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Shipping Address</label>
+                            <input type="text" id="address" required placeholder="Street address, City, Zip">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" required placeholder="Enter your email">
+                        </div>
+                    </form>
+                </div>
+
+                <div class="summary-section">
+                    <h2>Order Summary</h2>
+                    <div class="order-items" id="orderItems">
+                    </div>
+
+                    <div class="total-section">
+                        <div class="total-row">
+                            <span>Total</span>
+                            <span id="orderTotal">$0.00</span>
+                        </div>
+                    </div>
+
+                    <button type="submit" form="checkoutForm" class="place-order-btn">Place Order</button>
+                    <a href="shop.html" class="back-link">← Continue Shopping</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Key used for LocalStorage
+        const CART_KEY = 'artisan_cart'; // or 'artisanEssentialsCart' if you chose Option B
+
+        function loadCheckout() {
+            const savedCart = localStorage.getItem(CART_KEY);
+            const orderItemsContainer = document.getElementById('orderItems');
+            const orderTotalElement = document.getElementById('orderTotal');
+
+            if (!savedCart) {
+                alert('Your cart is empty. Redirecting to shop.');
+                window.location.href = 'shop.html';
+                return;
+            }
+
+            let cart;
+            try {
+                cart = JSON.parse(savedCart) || {};
+            } catch (e) {
+                // malformed data — clear and redirect
+                localStorage.removeItem(CART_KEY);
+                alert('Cart data corrupted. Redirecting to shop.');
+                window.location.href = 'shop.html';
+                return;
+            }
+
+            const items = Object.values(cart);
+            if (items.length === 0) {
+                alert('Your cart is empty. Redirecting to shop.');
+                window.location.href = 'shop.html';
+                return;
+            }
+
+            let total = 0;
+            orderItemsContainer.innerHTML = '';
+
+            items.forEach(item => {
+                const itemTotal = item.product.price * item.qty;
+                total += itemTotal;
+
+                const itemDiv = document.createElement('div');
+                itemDiv.className = 'summary-item';
+                itemDiv.innerHTML = `
+            <img src="${item.product.img}" alt="${item.product.title}" onerror="this.src='https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=500'">
+            <div class="item-details">
+                <div class="item-title">${item.product.title}</div>
+                <div class="item-meta">
+                    <span>Qty: ${item.qty}</span>
+                    <span>$${itemTotal.toFixed(2)}</span>
+                </div>
+            </div>
+        `;
+                orderItemsContainer.appendChild(itemDiv);
+            });
+
+            orderTotalElement.textContent = `$${total.toFixed(2)}`;
+        }
+
+
+        function placeOrder() {
+            // Basic validation is handled by HTML5 'required' attributes in the form
+            // Ensure inputs are not empty logic handles via form submit
+            const name = document.getElementById('name').value;
+            const address = document.getElementById('address').value;
+
+            if (name && address) {
+                // Clear the cart
+                localStorage.removeItem(CART_KEY);
+
+                // Show success message
+                alert("Your order will arrive within 3 to 4 working days.");
+
+                // Redirect back to shop or home
+                window.location.href = 'shop.html';
+            }
+        }
+
+        // Initialize page
+        window.addEventListener('DOMContentLoaded', loadCheckout);
+    </script>
+</body>
+
+</html>
