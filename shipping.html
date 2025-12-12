@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Artisan Essentials - Shipping Policy</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Cormorant+Garamond:wght@300;400;600&family=Cinzel:wght@400;600;900&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a2332 0%, #2d4563 50%, #4a6fa5 100%);
+            color: #e8f1ff;
+            -webkit-font-smoothing: antialiased;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        /* Layout & Animation */
+        .page {
+            max-width: 1600px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #1e3a5f 0%, #2d5a7b 50%, #4a7ba7 100%);
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            min-height: 90vh;
+            opacity: 0;
+            animation: fadeIn 0.8s ease forwards 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes shimmer {
+
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        /* Header (Copied from Shop) */
+        header.topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 24px 32px;
+            background: linear-gradient(135deg, rgba(30, 58, 95, 0.8) 0%, rgba(26, 38, 66, 0.9) 100%);
+            gap: 20px;
+            border-bottom: 1px solid rgba(107, 141, 214, 0.3);
+            backdrop-filter: blur(15px);
+        }
+
+        .logo {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .logo .title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            letter-spacing: 3px;
+            background: linear-gradient(135deg, #d4a574 0%, #f5e6d3 50%, #d4a574 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+            animation: shimmer 3s infinite;
+            background-size: 200% 200%;
+        }
+
+        .logo .sub {
+            font-family: 'Cormorant Garamond';
+            font-size: 1.1rem;
+            font-weight: 300;
+            letter-spacing: 6px;
+            color: #a8c5e0;
+            text-transform: lowercase;
+            font-style: italic;
+            margin-top: -5px;
+        }
+
+        nav.topnav {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(26, 38, 66, 0.9);
+            backdrop-filter: blur(15px);
+            padding: 10px 20px;
+            border-radius: 50px;
+            border: 1px solid rgba(107, 141, 214, 0.3);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .topnav a {
+            text-decoration: none;
+            color: #e8f1ff;
+            padding: 8px 18px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            border-radius: 25px;
+            position: relative;
+        }
+
+        .topnav a:hover {
+            background: rgba(107, 141, 214, 0.2);
+            color: #8bbdf7;
+            transform: translateY(-2px);
+        }
+
+        /* Main Content Styling */
+        .content-area {
+            flex: 1;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .policy-container {
+            max-width: 1000px;
+            width: 100%;
+            background: rgba(30, 58, 95, 0.6);
+            backdrop-filter: blur(10px);
+            padding: 50px;
+            border-radius: 20px;
+            border: 1px solid rgba(107, 141, 214, 0.2);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: #d4a574;
+            margin-bottom: 30px;
+            text-align: center;
+            border-bottom: 1px solid rgba(212, 165, 116, 0.3);
+            padding-bottom: 20px;
+        }
+
+        h2 {
+            font-family: 'Cinzel', serif;
+            color: #8bbdf7;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+            letter-spacing: 1px;
+        }
+
+        p,
+        li {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #e8f1ff;
+            margin-bottom: 15px;
+        }
+
+        ul {
+            padding-left: 25px;
+            margin-bottom: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .highlight-box {
+            background: rgba(139, 189, 247, 0.1);
+            border-left: 4px solid #d4a574;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* Footer (Exact copy) */
+        footer.site-footer {
+            background: linear-gradient(180deg, rgba(26, 38, 66, 0.95) 0%, rgba(30, 58, 95, 0.95) 100%);
+            color: #a8c5e0;
+            padding: 60px 40px 20px;
+            border-top: 1px solid rgba(107, 141, 214, 0.2);
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(107, 141, 214, 0.1);
+        }
+
+        .footer-brand .title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: #e8f1ff;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, #d4a574 0%, #f5e6d3 50%, #d4a574 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .footer-brand p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            max-width: 300px;
+            color: #a8c5e0;
+        }
+
+        .footer-col h4 {
+            color: #e8f1ff;
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #a8c5e0;
+            text-decoration: none;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #8bbdf7;
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            font-size: 0.95rem;
+            color: rgba(168, 197, 224, 0.6);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .policy-container {
+                padding: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 5px;
+            }
+
+            header.topbar {
+                flex-direction: column;
+                gap: 15px;
+                padding: 20px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-brand p {
+                margin: 0 auto 20px;
+            }
+
+            .content-area {
+                padding: 20px 10px;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .policy-container {
+                padding: 20px;
+            }
+
+            p,
+            li {
+                font-size: 1rem;
+            }
+
+            nav.topnav {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 260px) {
+            h1 {
+                font-size: 1.5rem;
+                word-break: break-word;
+            }
+
+            .logo .title {
+                font-size: 1.2rem;
+            }
+
+            .topnav a {
+                padding: 5px;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+        <header class="topbar">
+            <div class="logo">
+                <div>
+                    <div class="title">ARTISAN</div>
+                    <div class="sub">essentials</div>
+                </div>
+            </div>
+            <nav class="topnav">
+                <a href="home.html">Home</a>
+                <a href="shop.html">Shop</a>
+                <a href="updateabout.html">About</a>
+                <a href="updatecontact.html">Contact</a>
+            </nav>
+        </header>
+
+        <div class="content-area">
+            <div class="policy-container">
+                <h1>Shipping Policy</h1>
+
+                <div class="highlight-box">
+                    <p><strong>Free Shipping:</strong> We are pleased to offer complimentary standard shipping on all
+                        orders over $75 within the continental United States.</p>
+                </div>
+
+                <h2>Processing Time</h2>
+                <p>At Artisan Essentials, we treat every order with the care it deserves. Please allow 1-3 business days
+                    for our team to hand-pack and dispatch your items. Orders placed on weekends or holidays will be
+                    processed the following business day.</p>
+
+                <h2>Shipping Rates & Estimates</h2>
+                <ul>
+                    <li><strong>Standard Shipping (5-7 business days):</strong> $5.99 (Free for orders $75+)</li>
+                    <li><strong>Expedited Shipping (2-3 business days):</strong> $12.99</li>
+                    <li><strong>Overnight Shipping (1 business day):</strong> Calculated at checkout</li>
+                </ul>
+
+                <h2>International Shipping</h2>
+                <p>We currently ship to select countries worldwide. International shipping rates are calculated at
+                    checkout based on destination and weight. Please note that customers are responsible for any customs
+                    duties or taxes incurred.</p>
+
+                <h2>Tracking Your Order</h2>
+                <p>Once your artistry tools have left our facility, you will receive a confirmation email containing
+                    your tracking number. Please allow 24 hours for the carrier to update the tracking status.</p>
+
+                <h2>Packaging</h2>
+                <p>We believe the unboxing experience is part of the creative process. Your items will arrive securely
+                    packaged in eco-friendly materials, ensuring they reach you in pristine condition.</p>
+            </div>
+        </div>
+
+        <footer class="site-footer">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="title">Artisan</div>
+                    <p>Curating the finest tools for artists, writers, and visionaries. Quality you can feel, heritage
+                        you can trust.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="updateabout.html">Our Story</a></li>
+                        <li><a href="updatecontact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Customer Care</h4>
+                    <ul class="footer-links">
+                        <li><a href="shipping.html" style="color:#8bbdf7">Shipping Policy</a></li>
+                        <li><a href="returns.html">Returns & Exchanges</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Newsletter</h4>
+                    <p style="font-size:0.95rem; margin-bottom:10px;">Subscribe for exclusive offers.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2025 Artisan Essentials. All rights reserved.
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>
