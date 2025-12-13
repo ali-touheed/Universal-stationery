@@ -107,7 +107,7 @@
             border-bottom: 1px solid rgba(107, 141, 214, 0.3);
             backdrop-filter: blur(15px);
             flex-wrap: wrap;
-            /* Fix for mobile responsiveness */
+            
         }
 
         .logo {
@@ -270,7 +270,7 @@
             opacity: 0;
             animation: slideInFromLeft 0.8s ease forwards;
             flex-shrink: 0;
-            /* Prevent shrinking */
+            
         }
 
         .filter-section h4 {
@@ -346,7 +346,7 @@
             border-radius: 16px;
             border: 1px solid rgba(107, 141, 214, 0.2);
             flex-wrap: wrap;
-            /* Critical for mobile responsiveness */
+            
         }
 
         .controls-left {
@@ -422,10 +422,10 @@
             box-shadow: 0 0 20px rgba(107, 141, 214, 0.3);
         }
 
-        /* --- RESPONSIVE GRID FIX --- */
+        
         .grid {
             display: grid;
-            /* Changed from fixed columns to responsive wrapping */
+            
             grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
             gap: 20px;
             padding-bottom: 40px;
@@ -741,7 +741,7 @@
             font-size: 0.95rem;
             table-layout: fixed;
             min-width: 600px;
-            /* Allow scrolling on mobile */
+            
         }
 
         .comparison-table th,
@@ -843,7 +843,7 @@
             flex: 1;
             overflow-y: auto;
             overflow-x: auto;
-            /* Allow horizontal scrolling for tables */
+            
             padding: 16px;
             background: rgba(255, 255, 255, 0.05);
             border-radius: 12px;
@@ -909,12 +909,12 @@
             box-shadow: 0 8px 20px rgba(46, 213, 115, 0.4);
         }
 
-        /* --- RESPONSIVE CART FIX --- */
+        
         .cart-sidebar {
             width: 100%;
-            /* Takes full width on small screens */
+            
             max-width: 380px;
-            /* Limits width on desktop */
+            
             background: linear-gradient(180deg, rgba(30, 58, 95, 0.9), rgba(26, 38, 66, 0.95));
             padding: 20px;
             border-radius: 16px 0 0 16px;
@@ -983,10 +983,10 @@
         .ci-meta {
             flex-grow: 1;
             min-width: 0;
-            /* Important for flex truncation */
+            
         }
 
-        /* Truncate cart item text on small screens */
+        
         .ci-meta div {
             white-space: nowrap;
             overflow: hidden;
@@ -1132,7 +1132,7 @@
 
         @media (max-width: 1200px) {
             .grid {
-                /* Ensure it stays responsive */
+                
                 grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
             }
         }
@@ -1175,13 +1175,13 @@
                 display: block;
             }
 
-            /* Responsive Cart Fix */
+            
             .cart-sidebar {
                 position: fixed;
                 right: 0;
                 top: 0;
                 z-index: 1000;
-                /* Ensure it's above filter */
+                
                 width: 100%;
                 max-width: 340px;
                 transform: translateX(100%);
@@ -1249,7 +1249,7 @@
                 width: 100%;
             }
 
-            /* Allow single column on very small screens (260px) */
+            
             .grid {
                 grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
                 gap: 16px;
@@ -1281,7 +1281,7 @@
 
         @media (max-width: 300px) {
 
-            /* Support for 260px devices */
+            
             .grid {
                 grid-template-columns: 1fr;
             }
@@ -1459,7 +1459,7 @@
                 </div>
             </div>
             <nav class="topnav">
-                <a href="home.html">Home</a>
+                <a href="index.html">Home</a>
                 <a href="#" style="color:#d4a574;font-weight:700">Shop</a>
                 <a href="updateabout.html">About</a>
                 <a href="updatecontact.html">Contact</a>
@@ -1578,7 +1578,7 @@
                 <div class="footer-col">
                     <h4>Quick Links</h4>
                     <ul class="footer-links">
-                        <li><a href="home.html">Home</a></li>
+                        <li><a href="index.html">Home</a></li>
                         <li><a href="shop.html">Shop</a></li>
                         <li><a href="updateabout.html">Our Story</a></li>
                         <li><a href="updatecontact.html">Contact Us</a></li>
