@@ -5,48 +5,35 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Artisan Essentials - Checkout</title>
+
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Cormorant+Garamond:wght@300;400;600&family=Cinzel:wght@400;600;900&display=swap"
         rel="stylesheet">
+
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
             font-family: 'Georgia', serif;
             min-height: 100vh;
-            background: linear-gradient(135deg, #1a2332 0%, #2d4563 50%, #4a6fa5 100%);
+            background: linear-gradient(135deg, #1a2332, #2d4563, #4a6fa5);
             color: #e8f1ff;
-            -webkit-font-smoothing: antialiased;
             padding: 20px;
         }
 
         .checkout-page {
             max-width: 1200px;
-            margin: 0 auto;
-            background: linear-gradient(135deg, #1e3a5f 0%, #2d5a7b 50%, #4a7ba7 100%);
+            margin: auto;
+            background: linear-gradient(135deg, #1e3a5f, #2d5a7b, #4a7ba7);
             border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,.4);
             overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
-            min-height: 90vh;
-            display: flex;
-            flex-direction: column;
         }
 
         header.topbar {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 24px 32px;
-            background: linear-gradient(135deg, rgba(30, 58, 95, 0.8) 0%, rgba(26, 38, 66, 0.9) 100%);
-            border-bottom: 1px solid rgba(107, 141, 214, 0.3);
-        }
-
-        .logo {
             text-align: center;
+            padding: 24px;
+            border-bottom: 1px solid rgba(107,141,214,.3);
         }
 
         .logo .title {
@@ -54,17 +41,12 @@
             font-size: 2.2rem;
             font-weight: 900;
             letter-spacing: 3px;
-            background: linear-gradient(135deg, #d4a574 0%, #f5e6d3 50%, #d4a574 100%);
-            background-clip: text;
+            background: linear-gradient(135deg,#d4a574,#f5e6d3,#d4a574);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-transform: uppercase;
         }
 
-        .main-content {
-            padding: 40px;
-            flex: 1;
-        }
+        .main-content { padding: 40px; }
 
         .checkout-grid {
             display: grid;
@@ -75,322 +57,229 @@
         h2 {
             font-family: 'Cinzel', serif;
             color: #d4a574;
-            margin-bottom: 24px;
-            font-size: 1.5rem;
-            border-bottom: 1px solid rgba(107, 141, 214, 0.3);
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(107,141,214,.3);
             padding-bottom: 10px;
         }
 
-        /* Form Styles */
-        .form-section {
-            background: rgba(30, 58, 95, 0.6);
+        .form-section,
+        .summary-section {
+            background: rgba(30,58,95,.7);
             padding: 30px;
             border-radius: 16px;
-            border: 1px solid rgba(107, 141, 214, 0.2);
+            border: 1px solid rgba(107,141,214,.2);
         }
 
-        .form-group {
-            margin-bottom: 20px;
-        }
+        .form-group { margin-bottom: 18px; }
 
-        .form-group label {
+        label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             color: #a8c5e0;
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.1rem;
-            font-weight: 600;
+            font-size: 1.05rem;
         }
 
-        .form-group input {
+        input {
             width: 100%;
             padding: 12px 16px;
             border-radius: 10px;
-            border: 1px solid rgba(107, 141, 214, 0.3);
-            background: rgba(26, 38, 66, 0.8);
-            color: #e8f1ff;
+            border: 1px solid rgba(107,141,214,.3);
+            background: rgba(26,38,66,.8);
+            color: #fff;
             font-size: 1rem;
-            font-family: 'Georgia', serif;
-            transition: all 0.3s ease;
         }
 
-        .form-group input:focus {
+        input:focus {
             outline: none;
             border-color: #8bbdf7;
-            box-shadow: 0 0 15px rgba(139, 189, 247, 0.2);
-        }
-
-        /* Order Summary Styles */
-        .summary-section {
-            background: rgba(26, 38, 66, 0.9);
-            padding: 30px;
-            border-radius: 16px;
-            border: 1px solid rgba(107, 141, 214, 0.2);
-            height: fit-content;
-        }
-
-        .order-items {
-            max-height: 400px;
-            overflow-y: auto;
-            margin-bottom: 20px;
-            padding-right: 10px;
-        }
-
-        .order-items::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        .order-items::-webkit-scrollbar-track {
-            background: rgba(30, 58, 95, 0.3);
-        }
-
-        .order-items::-webkit-scrollbar-thumb {
-            background: rgba(139, 189, 247, 0.5);
-            border-radius: 10px;
+            box-shadow: 0 0 12px rgba(139,189,247,.3);
         }
 
         .summary-item {
             display: flex;
             gap: 12px;
-            margin-bottom: 16px;
-            padding-bottom: 16px;
-            border-bottom: 1px solid rgba(107, 141, 214, 0.1);
-        }
-
-        .summary-item:last-child {
-            border-bottom: none;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(107,141,214,.15);
+            padding-bottom: 12px;
         }
 
         .summary-item img {
             width: 60px;
             height: 60px;
-            object-fit: cover;
             border-radius: 8px;
-            border: 1px solid rgba(107, 141, 214, 0.2);
-        }
-
-        .item-details {
-            flex: 1;
-        }
-
-        .item-title {
-            font-weight: 700;
-            font-size: 0.95rem;
-            margin-bottom: 4px;
+            object-fit: cover;
         }
 
         .item-meta {
-            color: #a8c5e0;
-            font-size: 0.85rem;
             display: flex;
             justify-content: space-between;
-        }
-
-        .total-section {
-            border-top: 2px solid rgba(107, 141, 214, 0.3);
-            padding-top: 20px;
-            margin-top: 10px;
+            font-size: .85rem;
+            color: #a8c5e0;
         }
 
         .total-row {
             display: flex;
             justify-content: space-between;
             font-size: 1.3rem;
-            font-weight: 700;
-            color: #d4a574;
             font-family: 'Cinzel', serif;
+            color: #d4a574;
+            margin-top: 20px;
         }
 
         .place-order-btn {
             width: 100%;
-            margin-top: 24px;
+            margin-top: 22px;
             padding: 14px;
-            background: linear-gradient(135deg, #2ed573, #26de81);
-            color: #0e223d;
             border: none;
             border-radius: 12px;
+            background: linear-gradient(135deg,#2ed573,#26de81);
+            font-family: 'Cinzel', serif;
             font-size: 1.1rem;
             font-weight: 700;
-            font-family: 'Cinzel', serif;
             cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(46, 213, 115, 0.3);
         }
 
         .place-order-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(46, 213, 115, 0.5);
-            filter: brightness(1.1);
+            box-shadow: 0 8px 25px rgba(46,213,115,.5);
         }
 
         .back-link {
             display: block;
             text-align: center;
-            margin-top: 16px;
+            margin-top: 15px;
             color: #a8c5e0;
             text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.3s;
-        }
-
-        .back-link:hover {
-            color: #e8f1ff;
-            text-decoration: underline;
         }
 
         @media (max-width: 800px) {
-            .checkout-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .order-items {
-                max-height: 300px;
-            }
-
-            .checkout-grid {
-                display: flex;
-                flex-direction: column-reverse;
-            }
+            .checkout-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 
 <body>
-    <div class="checkout-page">
-        <header class="topbar">
-            <div class="logo">
-                <div class="title">ARTISAN</div>
-                <div
-                    style="font-family: 'Cormorant Garamond'; letter-spacing: 4px; font-style: italic; font-size: 0.9rem; color: #a8c5e0;">
-                    secure checkout</div>
-            </div>
-        </header>
+<div class="checkout-page">
 
-        <div class="main-content">
-            <div class="checkout-grid">
-
-                <div class="form-section">
-                    <h2>Shipping Details</h2>
-                    <form id="checkoutForm" onsubmit="event.preventDefault(); placeOrder();">
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" required placeholder="Enter your full name">
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" required placeholder="Enter your phone number">
-                        </div>
-                        <div class="form-group">
-                            <label for="address">Shipping Address</label>
-                            <input type="text" id="address" required placeholder="Street address, City, Zip">
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" required placeholder="Enter your email">
-                        </div>
-                    </form>
-                </div>
-
-                <div class="summary-section">
-                    <h2>Order Summary</h2>
-                    <div class="order-items" id="orderItems">
-                    </div>
-
-                    <div class="total-section">
-                        <div class="total-row">
-                            <span>Total</span>
-                            <span id="orderTotal">$0.00</span>
-                        </div>
-                    </div>
-
-                    <button type="submit" form="checkoutForm" class="place-order-btn">Place Order</button>
-                    <a href="shop.html" class="back-link">← Continue Shopping</a>
-                </div>
-
-            </div>
+<header class="topbar">
+    <div class="logo">
+        <div class="title">ARTISAN</div>
+        <div style="letter-spacing:4px;font-style:italic;color:#a8c5e0;">
+            secure checkout
         </div>
     </div>
+</header>
 
-    <script>
-        // Key used for LocalStorage
-        const CART_KEY = 'artisanEssentialsCart';
+<div class="main-content">
+<div class="checkout-grid">
 
-        function loadCheckout() {
-            const savedCart = localStorage.getItem(CART_KEY);
-            const orderItemsContainer = document.getElementById('orderItems');
-            const orderTotalElement = document.getElementById('orderTotal');
+<!-- FORM -->
+<div class="form-section">
+<h2>Shipping Details</h2>
 
-            if (!savedCart) {
-                alert('Your cart is empty. Redirecting to shop.');
-                window.location.href = 'shop.html';
-                return;
-            }
+<form id="checkoutForm" onsubmit="event.preventDefault(); placeOrder();">
 
-            let cart;
-            try {
-                cart = JSON.parse(savedCart) || {};
-            } catch (e) {
-                // malformed data — clear and redirect
-                localStorage.removeItem(CART_KEY);
-                alert('Cart data corrupted. Redirecting to shop.');
-                window.location.href = 'shop.html';
-                return;
-            }
+<div class="form-group">
+<label>Full Name</label>
+<input type="text" id="name" required>
+</div>
 
-            const items = Object.values(cart);
-            if (items.length === 0) {
-                alert('Your cart is empty. Redirecting to shop.');
-                window.location.href = 'shop.html';
-                return;
-            }
+<div class="form-group">
+<label>Phone Number</label>
+<input
+    type="tel"
+    id="phone"
+    required
+    inputmode="numeric"
+    pattern="[0-9]*"
+    maxlength="15"
+    placeholder=""
+    oninput="this.value = this.value.replace(/[^0-9]/g,'')">
+</div>
 
-            let total = 0;
-            orderItemsContainer.innerHTML = '';
+<div class="form-group">
+<label>Shipping Address</label>
+<input type="text" id="address" required>
+</div>
 
-            items.forEach(item => {
-                const itemTotal = item.product.price * item.qty;
-                total += itemTotal;
+<div class="form-group">
+<label>Email Address</label>
+<input type="email" id="email" required>
+</div>
 
-                const itemDiv = document.createElement('div');
-                itemDiv.className = 'summary-item';
-                itemDiv.innerHTML = `
-            <img src="${item.product.img}" alt="${item.product.title}" onerror="this.src='https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=500'">
-            <div class="item-details">
-                <div class="item-title">${item.product.title}</div>
+</form>
+</div>
+
+<!-- SUMMARY -->
+<div class="summary-section">
+<h2>Order Summary</h2>
+<div id="orderItems"></div>
+
+<div class="total-row">
+<span>Total</span>
+<span id="orderTotal">$0.00</span>
+</div>
+
+<button class="place-order-btn" form="checkoutForm">Place Order</button>
+<a href="shop.html" class="back-link">← Continue Shopping</a>
+</div>
+
+</div>
+</div>
+</div>
+
+<script>
+const CART_KEY = 'artisanEssentialsCart';
+
+function loadCheckout() {
+    const cart = JSON.parse(localStorage.getItem(CART_KEY) || '{}');
+    const items = Object.values(cart);
+    let total = 0;
+    const container = document.getElementById('orderItems');
+
+    if (!items.length) {
+        alert("Cart is empty");
+        location.href = "shop.html";
+        return;
+    }
+
+    container.innerHTML = '';
+    items.forEach(i => {
+        const itemTotal = i.qty * i.product.price;
+        total += itemTotal;
+
+        container.innerHTML += `
+        <div class="summary-item">
+            <img src="${i.product.img}">
+            <div style="flex:1">
+                <div>${i.product.title}</div>
                 <div class="item-meta">
-                    <span>Qty: ${item.qty}</span>
+                    <span>Qty: ${i.qty}</span>
                     <span>$${itemTotal.toFixed(2)}</span>
                 </div>
             </div>
-        `;
-                orderItemsContainer.appendChild(itemDiv);
-            });
+        </div>`;
+    });
 
-            orderTotalElement.textContent = `$${total.toFixed(2)}`;
-        }
+    document.getElementById('orderTotal').textContent = `$${total.toFixed(2)}`;
+}
 
+function placeOrder() {
+    const phone = document.getElementById('phone').value;
 
-        function placeOrder() {
-            // Basic validation is handled by HTML5 'required' attributes in the form
-            // Ensure inputs are not empty logic handles via form submit
-            const name = document.getElementById('name').value;
-            const address = document.getElementById('address').value;
+    if (!/^\d{10,15}$/.test(phone)) {
+        alert("Enter a valid phone number ");
+        return;
+    }
 
-            if (name && address) {
-                // Clear the cart
-                localStorage.removeItem(CART_KEY);
+    localStorage.removeItem(CART_KEY);
+    alert("Your order will arrive within 3–4 working days.");
+    location.href = "shop.html";
+}
 
-                // Show success message
-                alert("Your order will arrive within 3 to 4 working days.");
+window.onload = loadCheckout;
+</script>
 
-                // Redirect back to shop or home
-                window.location.href = 'shop.html';
-            }
-        }
-
-        // Initialize page
-        window.addEventListener('DOMContentLoaded', loadCheckout);
-    </script>
 </body>
-
 </html>
