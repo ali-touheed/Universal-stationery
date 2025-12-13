@@ -430,6 +430,133 @@
                 padding: 5px 8px;
             }
         }
+
+        /* Account Icon */
+        .account-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #8bbdf7, #6ba7e6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 6px 20px rgba(139, 189, 247, 0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .account-icon:hover {
+            transform: scale(1.15);
+        }
+
+        .account-icon span {
+            font-size: 1.3rem;
+        }
+
+        /* Sidebar */
+        .account-sidebar {
+            position: fixed;
+            top: 0;
+            right: -360px;
+            width: 360px;
+            height: 100%;
+            background: rgba(26, 38, 66, 0.95);
+            backdrop-filter: blur(20px);
+            box-shadow: -10px 0 40px rgba(0, 0, 0, 0.6);
+            transition: right 0.45s ease;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .account-sidebar.active {
+            right: 0;
+        }
+
+        .account-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid rgba(139, 189, 247, 0.3);
+        }
+
+        .account-header h3 {
+            color: #f5e6d3;
+            font-family: 'Cinzel', serif;
+        }
+
+        .account-header button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.4rem;
+            cursor: pointer;
+        }
+
+        .account-body {
+            padding: 30px;
+            text-align: center;
+        }
+
+        .user-avatar {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #d4a574, #f5e6d3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            margin: 0 auto 15px;
+        }
+
+        .account-body h4 {
+            color: #fff;
+            margin-bottom: 5px;
+        }
+
+        .account-body p {
+            color: #a8c5e0;
+            font-size: 0.9rem;
+            margin-bottom: 25px;
+        }
+
+        .account-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .account-links li {
+            margin: 15px 0;
+        }
+
+        .account-links a {
+            color: #e8f1ff;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .account-links a:hover {
+            color: #8bbdf7;
+        }
+
+        /* Overlay */
+        #accountOverlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.3s ease;
+            z-index: 9998;
+        }
+
+        #accountOverlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
     </style>
 </head>
 
@@ -446,7 +573,9 @@
                 <nav>
                     <a href="updateabout.html">𝒶𝒷𝑜𝓊𝓉</a>
                     <a href="updatecontact.html">𝒸𝑜𝓃𝓉𝒶𝒸𝓉𝓈</a>
-                    <a href="login.html" class="login-btn">𝓁𝑜𝑔𝒾𝓃</a>
+                    <div class="account-icon" onclick="toggleAccountPanel()">
+                        <span>👤</span>
+                    </div>
                 </nav>
             </header>
 
@@ -468,6 +597,34 @@
             </div>
         </div>
     </div>
+    <div id="accountSidebar" class="account-sidebar">
+        <div class="account-header">
+            <h3>My Account</h3>
+            <button onclick="toggleAccountPanel()">✕</button>
+        </div>
+
+        <div class="account-body">
+            <div class="user-avatar">👤</div>
+            <h4>Guest User</h4>
+            <p>guest@artisan.com</p>
+
+            <ul class="account-links">
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">Orders</a></li>
+                <li><a href="#">Wishlist</a></li>
+                <li><a href="login.html">Login / Sign Up</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="accountOverlay" onclick="toggleAccountPanel()"></div>
+    <script>
+        function toggleAccountPanel() {
+            document.getElementById("accountSidebar").classList.toggle("active");
+            document.getElementById("accountOverlay").classList.toggle("active");
+        }
+    </script>
+
 </body>
 <script>
     if (sessionStorage.getItem("isLoggedIn") === "true") {
