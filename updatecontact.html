@@ -3,189 +3,20 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Contact Us | Artisan Essentials</title>
     <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Cormorant+Garamond:wght@300;400;600&family=Cinzel:wght@400;600;900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Cormorant+Garamond:wght@300;400;600&display=swap"
         rel="stylesheet">
     <style>
-        @media(max-width:1024px) {
-            .hero-title {
-                font-size: 2.8rem;
-            }
-
-            .contact-container {
-                padding: 30px 20px;
-                gap: 30px;
-            }
-
-            .contact-card {
-                padding: 30px;
-            }
-        }
-
-        @media(max-width:768px) {
-            body {
-                padding: 10px;
-            }
-
-            header.topbar {
-                flex-direction: column;
-                gap: 20px;
-                padding: 20px;
-            }
-
-            .title {
-                font-size: 1.5rem;
-                letter-spacing: 2px;
-            }
-
-            .sub {
-                font-size: 0.95rem;
-                letter-spacing: 4px;
-            }
-
-            .topnav {
-                width: 100%;
-                justify-content: center;
-                flex-wrap: wrap;
-            }
-
-            .topnav a {
-                font-size: 0.85rem;
-                padding: 8px 14px;
-            }
-
-            .hero-section {
-                padding: 50px 25px;
-            }
-
-            .hero-title {
-                font-size: 2.2rem;
-                letter-spacing: 2px;
-            }
-
-            .hero-subtitle {
-                font-size: 1.1rem;
-            }
-
-            .contact-container {
-                grid-template-columns: 1fr;
-                margin: 40px auto;
-                padding: 20px;
-                gap: 25px;
-            }
-
-            .contact-card {
-                padding: 25px;
-            }
-
-            .contact-title {
-                font-size: 1.5rem;
-            }
-
-            .contact-text {
-                font-size: 1.05rem;
-            }
-
-            .cta-section {
-                padding: 40px 25px;
-            }
-
-            .cta-title {
-                font-size: 1.8rem;
-            }
-
-            .cta-text {
-                font-size: 1.1rem;
-            }
-
-            .footer {
-                padding: 50px 20px;
-            }
-
-            .footer-container {
-                gap: 35px;
-            }
-
-            .footer-logo {
-                font-size: 1.9rem;
-            }
-
-            .footer-about {
-                font-size: 1.05rem;
-            }
-
-            .footer-title {
-                font-size: 1.3rem;
-            }
-        }
-
-        @media(max-width:480px) {
-            .title {
-                font-size: 1.3rem;
-                letter-spacing: 1px;
-            }
-
-            .sub {
-                font-size: 0.85rem;
-                letter-spacing: 3px;
-            }
-
-            .topnav a {
-                font-size: 0.8rem;
-                padding: 7px 12px;
-            }
-
-            .hero-title {
-                font-size: 1.8rem;
-            }
-
-            .hero-subtitle {
-                font-size: 1rem;
-            }
-
-            .contact-card {
-                padding: 20px;
-            }
-
-            .contact-title {
-                font-size: 1.3rem;
-            }
-
-            form input,
-            form textarea {
-                padding: 14px;
-                font-size: 1rem;
-            }
-
-            .submit-btn {
-                padding: 14px;
-                font-size: 0.95rem;
-            }
-
-            .cta-title {
-                font-size: 1.5rem;
-            }
-
-            .cta-text {
-                font-size: 1rem;
-            }
-
-            .cta-button {
-                padding: 14px 30px;
-                font-size: 0.95rem;
-            }
-
-            .footer-logo {
-                font-size: 1.6rem;
-            }
-
-            .social-icons a {
-                width: 42px;
-                height: 42px;
-                font-size: 1.1rem;
-            }
+        :root {
+            --bg-1: #1a2332;
+            --bg-2: #2d4563;
+            --bg-3: #4a6fa5;
+            --accent-gold: #d4a574;
+            --accent-light: #8bbdf7;
+            --muted: #a8c5e0;
+            --glass-border: rgba(107, 141, 214, 0.3);
         }
 
         * {
@@ -195,490 +26,371 @@
         }
 
         body {
-            font-family: 'Georgia', serif;
+            font-family: 'Cormorant Garamond', serif;
             min-height: 100vh;
-            background: linear-gradient(135deg, #1a2332 0%, #2d4563 50%, #4a6fa5 100%);
+            background: linear-gradient(135deg, var(--bg-1) 0%, var(--bg-2) 50%, var(--bg-3) 100%);
             color: #e8f1ff;
             padding: 20px;
-            overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes shimmer {
-
-            0%,
-            100% {
-                background-position: 0% 50%;
-            }
-
-            50% {
-                background-position: 100% 50%;
-            }
-        }
-
         .page {
-            max-width: 1600px;
+            max-width: 1400px;
             margin: 0 auto;
             background: linear-gradient(135deg, #1e3a5f 0%, #2d5a7b 50%, #4a7ba7 100%);
-            border-radius: 30px;
+            border-radius: 22px;
             min-height: 90vh;
             overflow: hidden;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
-            opacity: 0;
-            animation: fadeIn 0.8s ease forwards;
         }
 
+        /* Header */
         header.topbar {
             display: flex;
+            flex-wrap: wrap;
             justify-content: space-between;
             align-items: center;
-            padding: 24px 32px;
+            padding: 20px 30px;
             background: linear-gradient(135deg, rgba(30, 58, 95, 0.8), rgba(26, 38, 66, 0.9));
-            border-bottom: 1px solid rgba(107, 141, 214, 0.3);
-            backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--glass-border);
+            gap: 20px;
         }
 
         .logo {
             display: flex;
             align-items: center;
-            gap: 16px;
+            gap: 12px;
         }
 
         .title {
             font-family: 'Cinzel', serif;
             font-size: 1.8rem;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
             font-weight: 900;
-            text-transform: uppercase;
             background: linear-gradient(135deg, #d4a574, #f5e6d3, #d4a574);
-            background-size: 200% 200%;
-            animation: shimmer 3s infinite;
-            background-clip: text;
+            -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
         }
 
         .sub {
-            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            letter-spacing: 4px;
+            color: var(--muted);
             font-style: italic;
-            font-size: 1.1rem;
-            letter-spacing: 6px;
-            color: #a8c5e0;
-            margin-top: -5px;
         }
 
-        .topnav {
+        nav.topnav {
             display: flex;
-            gap: 8px;
-            padding: 10px 20px;
-            background: rgba(26, 38, 66, 0.9);
+            gap: 10px;
+            padding: 8px 16px;
+            background: rgba(26, 38, 66, 0.8);
             border-radius: 50px;
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(107, 141, 214, 0.3);
+            border: 1px solid var(--glass-border);
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
-        .topnav a {
+        nav.topnav a {
             text-decoration: none;
             color: #e8f1ff;
             font-size: 0.9rem;
-            padding: 8px 18px;
+            padding: 6px 14px;
+            border-radius: 20px;
             transition: 0.3s;
-            border-radius: 25px;
-            position: relative;
         }
 
-        .topnav a:hover {
-            color: #8bbdf7;
+        nav.topnav a:hover {
             background: rgba(107, 141, 214, 0.2);
-            transform: translateY(-3px);
+            color: var(--accent-light);
         }
 
+        /* Hero */
         .hero-section {
             text-align: center;
-            padding: 80px 40px;
-            background: linear-gradient(135deg, rgba(30, 58, 95, 0.7), rgba(45, 90, 123, 0.5));
-            border-bottom: 1px solid rgba(107, 141, 214, 0.3);
-            animation: slideUp 0.8s ease forwards;
+            padding: 60px 20px;
+            border-bottom: 1px solid var(--glass-border);
         }
 
         .hero-title {
             font-family: 'Cinzel', serif;
-            font-size: 3.5rem;
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
             font-weight: 900;
-            letter-spacing: 4px;
-            margin-bottom: 20px;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
             background: linear-gradient(135deg, #d4a574, #f5e6d3, #d4a574);
-            animation: shimmer 3s infinite;
-            background-clip: text;
+            -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .hero-subtitle {
-            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            color: var(--muted);
             max-width: 700px;
             margin: 0 auto;
-            font-size: 1.3rem;
-            color: #a8c5e0;
-            line-height: 1.7;
-            font-style: italic;
+            line-height: 1.6;
         }
 
+        /* Contact Grid */
         .contact-container {
             max-width: 1200px;
-            margin: 60px auto;
-            padding: 40px;
+            margin: 40px auto;
+            padding: 0 20px;
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 40px;
-            animation: slideUp 1s ease forwards;
         }
 
         .contact-card {
-            background: linear-gradient(145deg, rgba(30, 58, 95, 0.8), rgba(26, 38, 66, 0.9));
-            padding: 40px;
-            border-radius: 18px;
-            border: 1px solid rgba(107, 141, 214, 0.2);
-            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
-            transition: 0.4s ease;
+            background: rgba(30, 58, 95, 0.8);
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid var(--glass-border);
+            transition: transform 0.3s;
         }
 
         .contact-card:hover {
-            transform: translateY(-8px);
-            border-color: #8bbdf7;
-            box-shadow: 0px 15px 40px rgba(139, 189, 247, 0.4);
+            transform: translateY(-5px);
+            border-color: var(--accent-light);
         }
 
         .contact-title {
             font-family: 'Cinzel', serif;
-            font-size: 1.8rem;
+            font-size: 1.6rem;
+            color: var(--accent-light);
             margin-bottom: 20px;
-            color: #8bbdf7;
         }
 
         .contact-text {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.15rem;
-            margin-bottom: 20px;
-            line-height: 1.7;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
             color: #e8f1ff;
+            word-wrap: break-word;
+            /* Prevents long emails from breaking layout */
         }
 
-        form input,
-        form textarea {
+        /* Form */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        input,
+        textarea {
             width: 100%;
-            padding: 16px;
-            margin-bottom: 16px;
-            border-radius: 12px;
+            padding: 14px;
+            border-radius: 10px;
             border: 1px solid rgba(139, 189, 247, 0.3);
             background: rgba(26, 38, 66, 0.6);
             color: #e8f1ff;
-            font-family: 'Cormorant Garamond';
-            font-size: 1.1rem;
+            font-family: inherit;
+            font-size: 1rem;
         }
 
-        form input:focus,
-        form textarea:focus {
+        input:focus,
+        textarea:focus {
             outline: none;
-            border-color: #8bbdf7;
-            box-shadow: 0px 0px 10px rgba(139, 189, 247, 0.5);
+            border-color: var(--accent-light);
+            background: rgba(26, 38, 66, 0.9);
         }
 
         .submit-btn {
-            width: 100%;
-            padding: 16px;
-            border-radius: 12px;
-            background: linear-gradient(135deg, #8bbdf7, #6ba7e6);
+            padding: 14px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--accent-light), #6ba7e6);
             color: #0e223d;
             font-weight: 700;
-            font-family: 'Cinzel';
+            font-family: 'Cinzel', serif;
             border: none;
             cursor: pointer;
             transition: 0.3s;
-            box-shadow: 0px 6px 20px rgba(139, 189, 247, 0.4);
+            margin-top: 10px;
         }
 
         .submit-btn:hover {
-            transform: translateY(-3px);
-            filter: brightness(1.15);
+            filter: brightness(1.1);
+            transform: translateY(-2px);
         }
 
+        /* CTA */
         .cta-section {
             text-align: center;
-            padding: 60px 40px;
+            padding: 50px 20px;
             margin-top: 40px;
-            background: linear-gradient(135deg, rgba(30, 58, 95, 0.8), rgba(26, 38, 66, 0.9));
-            border-top: 1px solid rgba(107, 141, 214, 0.2);
-        }
-
-        .cta-title {
-            font-family: 'Cinzel', serif;
-            font-size: 2.2rem;
-            color: #e8f1ff;
-            margin-bottom: 20px;
-        }
-
-        .cta-text {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.2rem;
-            color: #a8c5e0;
-            margin-bottom: 30px;
+            border-top: 1px solid var(--glass-border);
         }
 
         .cta-button {
+            display: inline-block;
+            margin-top: 20px;
             text-decoration: none;
-            padding: 16px 40px;
-            background: linear-gradient(135deg, #8bbdf7, #6ba7e6);
+            padding: 14px 30px;
+            background: linear-gradient(135deg, var(--accent-light), #6ba7e6);
             color: #0e223d;
-            border-radius: 12px;
-            font-family: 'Cinzel';
+            border-radius: 10px;
+            font-family: 'Cinzel', serif;
             font-weight: 700;
-            box-shadow: 0px 6px 20px rgba(139, 189, 247, 0.4);
             transition: 0.3s;
         }
 
         .cta-button:hover {
-            transform: translateY(-3px);
+            transform: translateY(-2px);
         }
 
-        @media(max-width:900px) {
+        /* Footer */
+        footer {
+            background: linear-gradient(145deg, #0e1a2b, #0b1322);
+            padding: 40px 20px;
+            margin-top: 40px;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 30px;
+        }
+
+        .footer-logo {
+            font-family: 'Cinzel', serif;
+            font-size: 1.6rem;
+            color: var(--accent-gold);
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            display: block;
+            color: #e8f1ff;
+            text-decoration: none;
+            margin-bottom: 8px;
+            font-size: 1rem;
+            transition: 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-light);
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(139, 189, 247, 0.1);
+            color: rgba(168, 197, 224, 0.6);
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            header.topbar {
+                flex-direction: column;
+                padding: 15px;
+            }
+
+            nav.topnav {
+                width: 100%;
+                justify-content: center;
+            }
+
             .contact-container {
                 grid-template-columns: 1fr;
+                margin: 20px auto;
+                gap: 20px;
             }
         }
     </style>
-
-
 </head>
 
 <body>
     <div class="page">
         <header class="topbar">
             <div class="logo">
-                <div>
-                    <div class="title">ARTISAN</div>
-                    <div class="sub">essentials</div>
-                </div>
+                <div class="title">ARTISAN</div>
+                <div class="sub">essentials</div>
             </div>
             <nav class="topnav">
+                <a href="home.html">Home</a>
                 <a href="shop.html">Shop</a>
-                <a href="updatecontact.html">Contact Us</a>
                 <a href="updateabout.html">About</a>
-                <a href="login.html">Login</a>
+                <a href="#" style="color:var(--accent-light)">Contact</a>
             </nav>
         </header>
-
 
         <section class="hero-section">
             <h1 class="hero-title">Contact Us</h1>
             <p class="hero-subtitle">
-                Questions, feedback, or assistance—our team is always ready to help you. Reach out and we'll respond
-                promptly.
+                Questions, feedback, or assistance—our team is always ready to help you.
             </p>
         </section>
 
         <div class="contact-container">
             <div class="contact-card">
                 <h2 class="contact-title">Get in Touch</h2>
-                <p class="contact-text">We're available to help with product inquiries, order assistance, or general
-                    questions about Artisan Essentials.</p>
-                <p class="contact-text"><strong>Email:</strong> artisanessentials@gmail.com</p>
-                <p class="contact-text"><strong>Phone:</strong> +92 317 288 2848</p>
-                <p class="contact-text"><strong>Address:</strong> North Nazimabad, Karachi, Pakistan</p>
+                <p class="contact-text">We're available to help with product inquiries and order assistance.</p>
+                <div style="margin-top: 20px;">
+                    <p class="contact-text"><strong>Email:</strong> artisanessentials@gmail.com</p>
+                    <p class="contact-text"><strong>Phone:</strong> +92 317 288 2848</p>
+                    <p class="contact-text"><strong>Address:</strong> North Nazimabad, Karachi, Pakistan</p>
+                </div>
             </div>
 
             <div class="contact-card">
                 <h2 class="contact-title">Send a Message</h2>
                 <form id="contactForm">
-                    <input type="text" placeholder="Your Name" required>
-                    <input type="email" placeholder="Your Email" required>
-                    <textarea rows="6" placeholder="Your Message" required></textarea>
+                    <input type="text" placeholder="Your Name" required aria-label="Your Name">
+                    <input type="email" placeholder="Your Email" required aria-label="Your Email">
+                    <textarea rows="5" placeholder="Your Message" required aria-label="Your Message"></textarea>
                     <button class="submit-btn" type="submit">Send Message</button>
                 </form>
             </div>
         </div>
 
         <section class="cta-section">
-            <h2 class="cta-title">Need Assistance?</h2>
-            <p class="cta-text">Whether browsing our collection or tracking an order, we're here for you every step of
-                the way.</p>
-            <a href="shopnow.html" class="cta-button">Explore Products</a>
+            <h2 style="font-family:'Cinzel'; color:#e8f1ff; margin-bottom:10px;">Need Assistance?</h2>
+            <p style="color:var(--muted);">We're here for you every step of the way.</p>
+            <a href="shop.html" class="cta-button">Explore Products</a>
         </section>
+
+        <footer>
+            <div class="footer-container">
+                <div>
+                    <div class="footer-logo">ARTISAN ESSENTIALS</div>
+                    <p style="color:var(--muted); font-size:0.95rem;">Fine stationery crafted with elegance and
+                        precision.</p>
+                </div>
+                <div>
+                    <h4 style="color:var(--accent-light); margin-bottom:15px; font-family:'Cinzel';">Quick Links</h4>
+                    <div class="footer-links">
+                        <a href="home.html">Home</a>
+                        <a href="shop.html">Shop</a>
+                        <a href="updateabout.html">About Us</a>
+                        <a href="updatecontact.html">Contact</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 style="color:var(--accent-light); margin-bottom:15px; font-family:'Cinzel';">Support</h4>
+                    <div class="footer-links">
+                        <a href="updatedprivacypolicy.html">Privacy Policy</a>
+                        <a href="updateterms.html">Terms & Conditions</a>
+                        <a href="updatedfaqs.html">FAQ</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">© 2025 Artisan Essentials — Crafted with passion & precision.</div>
+        </footer>
     </div>
 
-    <footer class="footer">
-        <style>
-            .footer {
-                background: linear-gradient(145deg, #0e1a2b, #0b1322);
-                padding: 70px 25px;
-                color: #e8f1ff;
-                margin-top: 60px;
-                border-top: 1px solid rgba(139, 189, 247, 0.2);
-                box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.4);
-            }
-
-            .footer-container {
-                max-width: 1400px;
-                margin: auto;
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-                gap: 50px;
-                animation: fadeIn 1s ease forwards;
-            }
-
-            .footer-logo {
-                font-size: 2.3rem;
-                font-weight: 900;
-                font-family: 'Cinzel', serif;
-                background: linear-gradient(135deg, #d4a574, #f5e6d3, #d4a574);
-                background-size: 200% 200%;
-                animation: shimmer 3s infinite;
-                -webkit-text-fill-color: transparent;
-                background-clip: text;
-            }
-
-            .footer-about {
-                margin-top: 15px;
-                font-family: 'Cormorant Garamond', serif;
-                font-size: 1.15rem;
-                opacity: 0.85;
-                line-height: 1.8;
-            }
-
-            .footer-title {
-                font-family: 'Cinzel', serif;
-                font-size: 1.5rem;
-                margin-bottom: 18px;
-                color: #8bbdf7;
-                letter-spacing: 1px;
-            }
-
-            .footer-links a {
-                display: block;
-                text-decoration: none;
-                margin-bottom: 10px;
-                font-size: 1.1rem;
-                font-family: 'Cormorant Garamond', serif;
-                color: #e8f1ff;
-                transition: 0.3s ease;
-            }
-
-            .footer-links a:hover {
-                color: #8bbdf7;
-                transform: translateX(6px);
-            }
-
-            .social-icons {
-                display: flex;
-                gap: 15px;
-                margin-top: 20px;
-            }
-
-            .social-icons a {
-                width: 48px;
-                height: 48px;
-                border-radius: 50%;
-                background: rgba(139, 189, 247, 0.12);
-                border: 1px solid rgba(139, 189, 247, 0.2);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                color: #8bbdf7;
-                font-size: 1.3rem;
-                transition: 0.35s ease;
-                backdrop-filter: blur(6px);
-            }
-
-            .social-icons a:hover {
-                background: #8bbdf7;
-                color: #0e1a2b;
-                transform: translateY(-6px) scale(1.12);
-                box-shadow: 0 10px 25px rgba(139, 189, 247, 0.4);
-            }
-
-            .footer-bottom {
-                text-align: center;
-                margin-top: 50px;
-                padding-top: 25px;
-                font-size: 1.05rem;
-                font-family: 'Cormorant Garamond', serif;
-                opacity: 0.65;
-                letter-spacing: 1px;
-                border-top: 1px solid rgba(139, 189, 247, 0.2);
-            }
-        </style>
-
-        <div class="footer-container">
-            <div>
-                <div class="footer-logo">ARTISAN ESSENTIALS</div>
-                <p class="footer-about">Fine stationery crafted with elegance and precision. Your companion for
-                    creativity, expression, and imagination.</p>
-                
-            </div>
-
-            <div>
-                <div class="footer-title">Quick Links</div>
-                <div class="footer-links">
-                    <a href="index.html">Home</a>
-                    <a href="updateabout.html">About Us</a>
-                    <a href="shopnow.html">Products</a>
-                    <a href="updatecontact.html">Contact</a>
-                </div>
-            </div>
-
-            <div>
-                <div class="footer-title">Support</div>
-                <div class="footer-links">
-                    <a href="privacy.html">Privacy Policy</a>
-                    <a href="terms.html">Terms & Conditions</a>
-                    <a href="faq.html">FAQ</a>
-                </div>
-            </div>
-
-            <div>
-                <div class="footer-title">Contact</div>
-                <p class="footer-about">
-                    Email: artisanessentials@gmail.com <br>
-                    Phone: +92 317 288 2848 <br>
-                    Location: North Nazimabad, Karachi, Pakistan
-                </p>
-            </div>
-        </div>
-
-        <div class="footer-bottom">© 2025 Artisan Essentials — Crafted with passion & precision.</div>
-    </footer>
-
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-
     <script>
-        const form = document.getElementById('contactForm');
-        form.addEventListener('submit', function (e) {
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
             e.preventDefault();
             alert("Thank you for reaching out! We'll respond to your message shortly.");
-            form.reset();
+            this.reset();
         });
     </script>
-
 </body>
 
 </html>
