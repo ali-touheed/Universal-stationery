@@ -609,8 +609,8 @@
             <p>guest@artisan.com</p>
 
             <ul class="account-links">
-                <li><a href="#">Profile</a></li>
-                <li><a href="#">Orders</a></li>
+                <li><a href="profilepage.html">Profile</a></li>
+                <li><a href="shop.html">Orders</a></li>
                 <li><a href="#">Wishlist</a></li>
                 <li><a href="login.html">Login / Sign Up</a></li>
             </ul>
@@ -626,13 +626,4 @@
     </script>
 
 </body>
-<script>
-    if (sessionStorage.getItem("isLoggedIn") === "true") {
-        const loginBtn = document.querySelector(".login-btn");
-        loginBtn.innerText = "Account";
-        loginBtn.setAttribute("href", "account.html");
-    }
-</script>
-
-
 </html>
