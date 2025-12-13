@@ -239,50 +239,141 @@
         }
 
         /* Footer */
-        footer {
-            background: linear-gradient(145deg, #0e1a2b, #0b1322);
-            padding: 40px 20px;
+        footer.site-footer {
+            background: linear-gradient(180deg, rgba(26, 38, 66, 0.95) 0%, rgba(30, 58, 95, 0.95) 100%);
+            color: #a8c5e0;
+            padding: 60px 40px 20px;
             margin-top: 40px;
-            border-top: 1px solid var(--glass-border);
+            border-top: 1px solid rgba(107, 141, 214, 0.2);
+            font-family: 'Cormorant Garamond', serif;
         }
 
-        .footer-container {
-            max-width: 1400px;
-            margin: auto;
+        .footer-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 30px;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(107, 141, 214, 0.1);
         }
 
-        .footer-logo {
+        .footer-brand .title {
             font-family: 'Cinzel', serif;
-            font-size: 1.6rem;
-            color: var(--accent-gold);
-            margin-bottom: 10px;
+            font-size: 1.8rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            color: #e8f1ff;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, #d4a574 0%, #f5e6d3 50%, #d4a574 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .footer-brand p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            max-width: 300px;
+            color: #a8c5e0;
+        }
+
+        .footer-col h4 {
+            color: #e8f1ff;
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
         }
 
         .footer-links a {
-            display: block;
-            color: #e8f1ff;
+            color: #a8c5e0;
             text-decoration: none;
-            margin-bottom: 8px;
-            font-size: 1rem;
-            transition: 0.2s;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+            position: relative;
         }
 
         .footer-links a:hover {
-            color: var(--accent-light);
+            color: #8bbdf7;
             padding-left: 5px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid rgba(107, 141, 214, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #e8f1ff;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-icon:hover {
+            background: #8bbdf7;
+            color: #1e3a5f;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(139, 189, 247, 0.3);
+        }
+
+        .newsletter-form {
+            display: flex;
+            margin-top: 15px;
+        }
+
+        .newsletter-input {
+            background: rgba(30, 58, 95, 0.5);
+            border: 1px solid rgba(107, 141, 214, 0.3);
+            padding: 10px 15px;
+            border-radius: 8px 0 0 8px;
+            color: #e8f1ff;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            width: 100%;
+        }
+
+        .newsletter-btn {
+            background: linear-gradient(135deg, #d4a574, #b88a5c);
+            color: #1a2332;
+            border: none;
+            padding: 0 20px;
+            border-radius: 0 8px 8px 0;
+            cursor: pointer;
+            font-weight: 700;
+            transition: filter 0.3s;
+        }
+
+        .newsletter-btn:hover {
+            filter: brightness(1.15);
         }
 
         .footer-bottom {
             text-align: center;
-            margin-top: 30px;
             padding-top: 20px;
-            border-top: 1px solid rgba(139, 189, 247, 0.1);
+            font-size: 0.95rem;
             color: rgba(168, 197, 224, 0.6);
-            font-size: 0.9rem;
         }
+
+
 
         /* Mobile Adjustments */
         @media (max-width: 768px) {
@@ -355,32 +446,75 @@
             <a href="shop.html" class="cta-button">Explore Products</a>
         </section>
 
-        <footer>
-            <div class="footer-container">
-                <div>
-                    <div class="footer-logo">ARTISAN ESSENTIALS</div>
-                    <p style="color:var(--muted); font-size:0.95rem;">Fine stationery crafted with elegance and
-                        precision.</p>
-                </div>
-                <div>
-                    <h4 style="color:var(--accent-light); margin-bottom:15px; font-family:'Cinzel';">Quick Links</h4>
-                    <div class="footer-links">
-                        <a href="home.html">Home</a>
-                        <a href="shop.html">Shop</a>
-                        <a href="updateabout.html">About Us</a>
-                        <a href="updatecontact.html">Contact</a>
+        <footer class="site-footer">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="title">Artisan</div>
+                    <p>Curating the finest tools for artists, writers, and visionaries. Quality you can feel, heritage
+                        you
+                        can trust.</p>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/people/Artisan-Essentials/61584925200982/"
+                            class="social-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com/artisan_essentials_officials/" class="social-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                        </a>
+                        <a href="https://x.com/ArtisanEss24603" class="social-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
+                                </path>
+                            </svg>
+                        </a>
                     </div>
                 </div>
-                <div>
-                    <h4 style="color:var(--accent-light); margin-bottom:15px; font-family:'Cinzel';">Support</h4>
-                    <div class="footer-links">
-                        <a href="updatedprivacypolicy.html">Privacy Policy</a>
-                        <a href="updateterms.html">Terms & Conditions</a>
-                        <a href="updatedfaqs.html">FAQ</a>
-                    </div>
+
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="updateabout.html">Our Story</a></li>
+                        <li><a href="updatecontact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Customer Care</h4>
+                    <ul class="footer-links">
+                        <li><a href="shipping.html">Shipping Policy</a></li>
+                        <li><a href="returns.html">Returns & Exchanges</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Newsletter</h4>
+                    <p style="font-size:0.95rem; margin-bottom:10px;">Subscribe for exclusive offers and new arrivals.
+                    </p>
+                    <form class="newsletter-form"
+                        onsubmit="event.preventDefault(); alert('Thank you for subscribing!');">
+                        <input type="email" class="newsletter-input" placeholder="Your email address" required>
+                        <button type="submit" class="newsletter-btn">Join</button>
+                    </form>
                 </div>
             </div>
-            <div class="footer-bottom">© 2025 Artisan Essentials — Crafted with passion & precision.</div>
+
+            <div class="footer-bottom">
+                &copy; 2025 Artisan Essentials. All rights reserved.
+            </div>
         </footer>
     </div>
 
