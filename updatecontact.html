@@ -44,7 +44,7 @@
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
         }
 
-        
+        /* Header */
         header.topbar {
             display: flex;
             align-items: center;
@@ -117,7 +117,7 @@
             transform: translateY(-2px);
         }
 
-        
+        /* Hero */
         .hero-section {
             text-align: center;
             padding: 60px 20px;
@@ -143,7 +143,7 @@
             line-height: 1.6;
         }
 
-        
+        /* Contact Grid */
         .contact-container {
             max-width: 1200px;
             margin: 40px auto;
@@ -178,11 +178,11 @@
             margin-bottom: 15px;
             color: #e8f1ff;
             word-wrap: break-word;
-            
+            /* Prevents long emails from breaking layout */
         }
 
-        
-        form {
+        /* Form (Specifically for Contact Form) */
+        #contactForm {
             display: flex;
             flex-direction: column;
             gap: 15px;
@@ -225,7 +225,7 @@
             transform: translateY(-2px);
         }
 
-        
+        /* CTA */
         .cta-section {
             text-align: center;
             padding: 50px 20px;
@@ -250,7 +250,7 @@
             transform: translateY(-2px);
         }
 
-        
+        /* Footer */
         footer.site-footer {
             background: linear-gradient(180deg, rgba(26, 38, 66, 0.95) 0%, rgba(30, 58, 95, 0.95) 100%);
             color: #a8c5e0;
@@ -347,16 +347,22 @@
             box-shadow: 0 5px 15px rgba(139, 189, 247, 0.3);
         }
 
+        /* Newsletter Specific Styles */
         .newsletter-form {
             display: flex;
+            flex-direction: row;
+            /* Forces horizontal alignment */
             margin-top: 15px;
+            gap: 0;
+            /* Removes gap between input and button */
         }
 
         .newsletter-input {
             background: rgba(30, 58, 95, 0.5);
             border: 1px solid rgba(107, 141, 214, 0.3);
             padding: 10px 15px;
-            border-radius: 8px 0 0 8px;
+            border-radius: 8px 0 0 8px !important;
+            /* Overrides generic input radius */
             color: #e8f1ff;
             font-family: 'Cormorant Garamond', serif;
             font-size: 1rem;
@@ -372,6 +378,8 @@
             cursor: pointer;
             font-weight: 700;
             transition: filter 0.3s;
+            white-space: nowrap;
+            /* Prevents text wrapping */
         }
 
         .newsletter-btn:hover {
@@ -385,9 +393,7 @@
             color: rgba(168, 197, 224, 0.6);
         }
 
-
-
-        
+        /* Mobile Adjustments */
         @media (max-width: 768px) {
             header.topbar {
                 flex-direction: column;
@@ -418,7 +424,7 @@
                 </div>
             </div>
             <nav class="topnav">
-                <a href="index.html">Home</a>
+                <a href="home.html">Home</a>
                 <a href="shop.html">Shop</a>
                 <a href="updateabout.html">About</a>
                 <a href="updatecontact.html">Contact</a>
@@ -499,7 +505,7 @@
                 <div class="footer-col">
                     <h4>Quick Links</h4>
                     <ul class="footer-links">
-                        <li><a href="index.html">Home</a></li>
+                        <li><a href="home.html">Home</a></li>
                         <li><a href="shop.html">Shop</a></li>
                         <li><a href="updateabout.html">Our Story</a></li>
                         <li><a href="updatecontact.html">Contact Us</a></li>
