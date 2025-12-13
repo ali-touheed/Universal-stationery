@@ -62,19 +62,18 @@
     /* Header */
     header.topbar {
       display: flex;
-      flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
+      padding: 24px 32px;
+      background: linear-gradient(135deg, rgba(30, 58, 95, 0.8) 0%, rgba(26, 38, 66, 0.9) 100%);
       gap: 20px;
-      padding: 20px 30px;
-      background: linear-gradient(90deg, rgba(19, 34, 56, 0.65), rgba(26, 38, 66, 0.75));
-      border-bottom: 1px solid var(--glass-border);
-      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(107, 141, 214, 0.3);
+      backdrop-filter: blur(15px);
     }
 
     .logo {
       display: flex;
-      gap: 12px;
+      gap: 16px;
       align-items: center;
     }
 
@@ -82,54 +81,55 @@
       font-family: 'Cinzel', serif;
       font-size: 1.8rem;
       font-weight: 900;
-      letter-spacing: 2px;
-      background: linear-gradient(135deg, var(--accent-gold) 0%, #f5e6d3 50%, var(--accent-gold) 100%);
+      letter-spacing: 3px;
+      background: linear-gradient(135deg, #d4a574 0%, #f5e6d3 50%, #d4a574 100%);
+      background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       text-transform: uppercase;
-      animation: shimmer 3.2s linear infinite;
+      animation: shimmer 3s infinite;
       background-size: 200% 200%;
-      line-height: 1;
     }
 
     .logo .sub {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 0.9rem;
+      font-family: 'Cormorant Garamond';
+      font-size: 1.1rem;
       font-weight: 300;
-      color: var(--muted);
-      letter-spacing: 4px;
+      letter-spacing: 6px;
+      color: #a8c5e0;
       text-transform: lowercase;
-      margin-top: -3px;
       font-style: italic;
+      margin-top: -5px;
     }
 
-    /* Navigation */
     nav.topnav {
       display: flex;
       align-items: center;
-      flex-wrap: wrap;
       gap: 8px;
-      background: rgba(26, 38, 66, 0.35);
-      padding: 8px 16px;
-      border-radius: 40px;
-      border: 1px solid var(--glass-border);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45);
+      background: rgba(26, 38, 66, 0.9);
+      backdrop-filter: blur(15px);
+      padding: 10px 20px;
+      border-radius: 50px;
+      border: 1px solid rgba(107, 141, 214, 0.3);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
     .topnav a {
       text-decoration: none;
       color: #e8f1ff;
-      padding: 6px 12px;
-      font-size: 0.95rem;
-      transition: all 240ms ease;
-      border-radius: 22px;
+      padding: 8px 18px;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+      border-radius: 25px;
       position: relative;
-      white-space: nowrap;
     }
 
     .topnav a:hover {
-      color: var(--accent-light);
-      background: rgba(139, 189, 247, 0.04);
+      background: rgba(107, 141, 214, 0.2);
+      color: #8bbdf7;
+      transform: translateY(-2px);
     }
 
     /* Hero */
@@ -513,18 +513,17 @@
 <body>
   <div class="page">
     <header class="topbar">
-      <div class="logo" aria-label="ARTISAN Essentials logo">
+      <div class="logo">
         <div>
           <div class="title">ARTISAN</div>
           <div class="sub">essentials</div>
         </div>
       </div>
-
-      <nav class="topnav" aria-label="Primary">
+      <nav class="topnav">
         <a href="home.html">Home</a>
         <a href="shop.html">Shop</a>
+        <a href="updateabout.html">About</a>
         <a href="updatecontact.html">Contact</a>
-        <a href="login.html">Login</a>
       </nav>
     </header>
 
@@ -645,13 +644,15 @@
           <p>Curating the finest tools for artists, writers, and visionaries. Quality you can feel, heritage you
             can trust.</p>
           <div class="footer-social">
-            <a href="https://www.facebook.com/people/Artisan-Essentials/61584925200982/" class="social-icon" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.facebook.com/people/Artisan-Essentials/61584925200982/" class="social-icon"
+              target="_blank" rel="noopener noreferrer">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                 stroke-linecap="round" stroke-linejoin="round">
                 <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
               </svg>
             </a>
-            <a href="https://www.instagram.com/artisan_essentials_officials/" class="social-icon" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.instagram.com/artisan_essentials_officials/" class="social-icon" target="_blank"
+              rel="noopener noreferrer">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                 stroke-linecap="round" stroke-linejoin="round">
                 <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
